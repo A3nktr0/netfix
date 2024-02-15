@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %} 
+    {% block title %}
+        NetFix
+    {% endblock %}
+
+{% block content %}
+    <div style="margin-top: 50px;">
+        <p class="site_title">NetFix</p>
+        <img class="home_logo" src="static/css/logo.png" alt="logo">
+    </div>
+                    <div class="line"></div>
+
+    <div>
+        <p class="title">Top services</p>
+        {% for service in top_services %}
+            <div style="display: ruby;" class="services_list">
+                <div class='service_list_info'>
+                    <li><a href="/services/{{service.id}}">{{ service.name }}</a>-- {{ service.price_hour }}€/hour</li>
+                </div>
+                <p style="display:block; margin: 0; float: right;font-size: small; margin-right: 30px;">by <a href="/company/{{service.company.user}}">{{service.company.user}}</a></p>
+            </div>
+                    <div class="line"></div>
+        {% endfor %}
+    </div>
+{% endblock %}
